@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Boarding-house application theme */
+:root {
+    --bh-green-950: #173f35;
+    --bh-green-800: #31584b;
+    --bh-green-600: #73917c;
+    --bh-gold: #d9a746;
+    --bh-cream: #f4f7ef;
+}
+
+body {
+    background: var(--bh-cream);
+}
+
+.app-shell {
+    background:
+        radial-gradient(circle at 90% 8%, rgba(217, 167, 70, .10), transparent 18rem),
+        #f1f5ee;
+}
+
+.app-navigation {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    border-bottom: 1px solid rgba(183, 202, 188, .75);
+    background: rgba(255, 255, 255, .94);
+    box-shadow: 0 8px 26px rgba(47, 78, 61, .06);
+    backdrop-filter: blur(12px);
+}
+
+.app-navigation a[aria-current="page"],
+.app-navigation .nav-link-active {
+    color: var(--bh-green-950) !important;
+}
+
+.app-page-header {
+    border-bottom: 1px solid rgba(205, 217, 207, .85);
+    background: rgba(255, 255, 255, .82);
+}
+
+.app-shell main > div,
+.app-shell [class*="bg-gray"],
+.app-shell [class*="bg-slate"] {
+    --tw-bg-opacity: 1;
+}
+
+.app-shell input,
+.app-shell select,
+.app-shell textarea {
+    border-color: #cbd8cd;
+}
+
+.app-shell input:focus,
+.app-shell select:focus,
+.app-shell textarea:focus {
+    border-color: #73917c;
+    --tw-ring-color: rgba(115, 145, 124, .20);
+}
+
+.app-shell table {
+    border-collapse: collapse;
+}
+
+.app-shell table th {
+    background: #f7f9f4;
+    color: #718278;
+}
+
+.app-shell table tbody tr {
+    transition: background .15s ease;
+}
+
+.app-shell table tbody tr:hover {
+    background: #fbfcf9;
+}
+
+.app-shell form [type="submit"],
+.app-shell .bg-blue-600,
+.app-shell .from-blue-600 {
+    background: var(--bh-green-950);
+}
+
+.app-shell form [type="submit"]:hover,
+.app-shell .bg-blue-600:hover,
+.app-shell .hover\:from-blue-700:hover {
+    background: #215044;
+}
+
+.app-shell [class*="rounded"] {
+    border-radius: 12px;
+}
+
+.terms-details {
+    border: 1px solid #d5dfd7;
+    border-radius: 10px;
+    background: #f8faf6;
+    color: #5d7165;
+}
+
+.terms-details summary {
+    cursor: pointer;
+    font-weight: 700;
+    list-style: none;
+}
+
+.terms-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.due-countdown {
+    transition: background-color .2s ease, color .2s ease;
+}
+
+.due-countdown.is-reminder {
+    background: #fff1c9;
+    color: #9a6418;
+}
+
+.due-countdown.is-overdue {
+    background: #fee4d7;
+    color: #b84d32;
+}
+
+.payment-amount-field:read-only {
+    cursor: not-allowed;
+    background: #f3f6f1;
+    color: #718278;
+}
+
+@media (max-width: 640px) {
+    .app-navigation {
+        position: relative;
+    }
+
+    .app-shell table {
+        min-width: 720px;
+    }
+}

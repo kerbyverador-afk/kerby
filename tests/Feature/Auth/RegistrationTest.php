@@ -17,7 +17,8 @@ class RegistrationTest extends TestCase
             ->assertSee('Terms & Conditions')
             ->assertSee('I have read and agree to the Terms & Conditions.')
             ->assertSee('name="terms" value="1"', false)
-            ->assertSee('Never share passwords, PINs, or one-time codes');
+            ->assertSee('Create Account & Continue')
+            ->assertSee('Account Responsibilities');
     }
 
     public function test_home_page_has_english_copy_and_terms_and_conditions(): void

@@ -45,22 +45,8 @@
                     </p>
                 </div>
 
-                <div class="story-house relative z-10" aria-hidden="true">
-                    <svg viewBox="0 0 520 280" fill="none">
-                        <ellipse cx="260" cy="258" rx="210" ry="16" fill="#102e27"/>
-                        <path d="M80 238V105l180-112 180 112v133H80Z" fill="#f8f4e8" stroke="#d9e6d5" stroke-width="6" stroke-linejoin="round"/>
-                        <path d="M53 110 260-27l207 137-24 21L260 7 77 131l-24-21Z" fill="#e1b95d" stroke="#d9e6d5" stroke-width="6" stroke-linejoin="round"/>
-                        <rect x="224" y="150" width="72" height="88" rx="36" fill="#e1b95d" stroke="#173f35" stroke-width="6"/>
-                        <circle cx="278" cy="194" r="4" fill="#173f35"/>
-                        <g fill="#91bdad" stroke="#173f35" stroke-width="6">
-                            <rect x="112" y="130" width="74" height="62" rx="4"/>
-                            <rect x="334" y="130" width="74" height="62" rx="4"/>
-                        </g>
-                        <circle cx="106" cy="163" r="25" fill="#c77c50" stroke="#173f35" stroke-width="5"/>
-                        <path d="M82 157c6-24 22-32 40-25 12 5 18 15 16 27-13-9-36-10-56-2Z" fill="#173f35"/>
-                        <path d="M84 204c8-15 21-21 38-21 18 0 31 7 38 21v34H84v-34Z" fill="#efc86a" stroke="#173f35" stroke-width="5"/>
-                        <path d="M70 238h380" stroke="#d9e6d5" stroke-width="6" stroke-linecap="round"/>
-                    </svg>
+                <div class="relative z-10 mt-auto w-full max-w-xl self-center">
+                    <x-boarding-payment-illustration />
                 </div>
             </section>
 
@@ -172,6 +158,7 @@
                             <a href="{{ route('register') }}" class="font-extrabold text-[#31584b] underline decoration-[#a9baad] underline-offset-4">Create account</a>
                         </p>
                     @endif
+
                 </div>
             </section>
         </main>

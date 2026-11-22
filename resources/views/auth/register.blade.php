@@ -51,9 +51,9 @@
         </div>
 
         <div id="terms-agreement" class="mt-5">
-            <details class="terms-details rounded-xl p-4" open>
-                <summary>Terms &amp; Conditions</summary>
-                <p class="mt-2 text-sm leading-6 text-[#5f756c]">Please read these rules before you create your account.</p>
+            <details class="terms-details rounded-xl border border-[#dbe5dc] p-4" open>
+                <summary class="cursor-pointer text-sm font-extrabold text-[#173f35]">Terms &amp; Conditions</summary>
+                <p class="mt-2 text-sm leading-6 text-[#5f756c]">Last updated: November 22, 2026. By continuing, you agree to the terms below.</p>
                 <x-terms-and-conditions />
             </details>
             <label for="terms" class="mt-4 flex items-start gap-3 text-sm leading-6 text-[#687d72]">
@@ -63,16 +63,21 @@
             <x-input-error :messages="$errors->get('terms')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
+        <div class="mt-5 flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <a class="text-center text-sm font-semibold text-gray-600 underline underline-offset-4 hover:text-gray-900" href="{{ route('login') }}">
+                {{ __('Already have an account? Log in') }}
             </a>
 
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
+            <button type="submit" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#173f35] px-5 py-3 text-sm font-extrabold text-white shadow-sm">
+                Create Account &amp; Continue
+                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M4 10h12m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
         </div>
     </form>
+
+    <x-boarding-payment-illustration />
 
     <div class="mt-6">
         <a href="{{ route('auth.google') }}" class="inline-flex w-full items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm transition hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">

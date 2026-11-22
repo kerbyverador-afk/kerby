@@ -34,15 +34,27 @@ class GoogleAuthController extends Controller
             return redirect()->route('login')->with('error', 'Unable to sign in with Google right now. Please try again.');
         }
 
-        $email = $googleUser->getEmail();
+        $email = Str::lower(trim((string) $googleUser->getEmail()));
 
         if (! $email) {
             return redirect()->route('login')->with('error', 'Google did not provide a valid email address.');
         }
 
-        $user = User::firstOrNew(['email' => $email]);
+        $googleId = (string) $googleUser->getId();
+        $user = User::whereRaw('LOWER(email) = ?', [$email])->first();
 
-        if (! $user->exists) {
+        if ($user && $user->google_id && (string) $user->google_id !== $googleId) {
+            return redirect()->route('login')->with('error', 'This Google account is already linked to another user.');
+        }
+
+        if ($user && ! $user->google_id) {
+            return redirect()->route('login')->with('error', 'This email address is already registered. Please use another Gmail account.');
+        }
+
+        if (! $user) {
+            $user = new User([
+                'email' => $email,
+            ]);
             $user->password = Hash::make(Str::random(40));
             $user->role = 'tenant';
             $user->email_verified_at = now();
